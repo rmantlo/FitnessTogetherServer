@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('user', {
+    const User = sequelize.define('user', {
         username: {
             type: DataTypes.STRING,
             unique: true,
@@ -22,21 +22,12 @@ module.exports = function (sequelize, DataTypes) {
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: true
         },
-        admin: {
-            type: DataTypes.BOOLEAN,
+        role: {
+            type: DataTypes.ENUM,
+            values: ['user', 'admin', 'banned'],
             allowNull: false
         }
-    },
-        {
-            setterMethods: {
-                set(email) {
-                    this.setDataValue('email', email.toString().toLowerCase())
-                },
-                set(username){
-                    this.setDataValue('username', username.toString().toLowerCase())
-                }
-            }
-        })
+    })
+    return User;
 }

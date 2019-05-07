@@ -9,17 +9,22 @@ router.post('/signup', (req, res) => {
     User.create({
         username: req.body.username,
         passwordhash: bcrypt.hashSync(req.body.password, 10),
-        email: req.body.email
+        email: req.body.email,
+        image: req.body.image,
+        role: "user"
     })
         .then(data => {
-            let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24 })
+            let token = jwt.sign({ id: data.id }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24 })
             res.status(200).json({
                 user: data,
                 'sessiontoken': token,
-                message: ' user created'
+                message: 'user created'
             })
-        })
-        .catch(err => res.status(500).json({ message: 'user not creates', error: err }))
+        },
+            function (err) {
+                res.status(500).json(err)
+            })
+        .catch(err => res.status(500).json({ message: 'something is wrong', error: err }))
 })
 router.get('/login', (req, res) => {
     User.findOne({
