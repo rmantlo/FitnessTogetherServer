@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 sequelize.sync();
+app.use(require('./middleware/headers'));
 
 app.use('/user', user);
 app.use(require('./middleware/validate_session'));

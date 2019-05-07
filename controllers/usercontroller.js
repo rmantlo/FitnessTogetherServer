@@ -26,13 +26,14 @@ router.post('/signup', (req, res) => {
             })
         .catch(err => res.status(500).json({ message: 'something is wrong', error: err }))
 })
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             username: req.body.username
         }
     })
         .then(function (user) {
+            console.log(user);
             if (user) {
                 bcrypt.compare(req.body.password, user.passwordhash, (err, matches) => {
                     if (matches) {
