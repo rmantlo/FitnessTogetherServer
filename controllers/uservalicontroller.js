@@ -14,9 +14,15 @@ router.get('/get', (req, res) => {
 })
 
 router.put('/update', (req, res) => {
-    User.update(req.body, {where:{ id: req.user.id}})
-    .then(data => res.status(200).json({update: data, message: 'information updated'}))
-    .catch(err => res.status(500).json(err))
+    User.update(req.body, { where: { id: req.user.id } })
+        .then(data => res.status(200).json({ update: data, message: 'information updated' }))
+        .catch(err => res.status(500).json(err))
+})
+
+router.delete('/delete', (req, res) => {
+    User.destroy({ where: { id: req.user.id } })
+        .then(data => res.status(200).json({ message: 'user deleted', data: data }))
+        .catch(err => res.status(500).json(err))
 })
 
 module.exports = router;
