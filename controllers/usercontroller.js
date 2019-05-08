@@ -17,7 +17,7 @@ router.post('/signup', (req, res) => {
             let token = jwt.sign({ id: data.id }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24 })
             res.status(200).json({
                 user: data,
-                'sessiontoken': token,
+                'sessionToken': token,
                 message: 'user created'
             })
         },
@@ -33,7 +33,6 @@ router.post('/login', (req, res) => {
         }
     })
         .then(function (user) {
-            console.log(user);
             if (user) {
                 bcrypt.compare(req.body.password, user.passwordhash, (err, matches) => {
                     if (matches) {
