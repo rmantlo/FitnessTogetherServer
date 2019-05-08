@@ -8,11 +8,21 @@ router.get('/', (req, res) => {
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json(err))
 })
+router.get('/getmine', (req, res) => {
+    Event.findAll({
+        where: {
+            userId: req.user.id
+        }
+    })
+        .then(data => res.status(200).json(data))
+        .catch(err => res.status(500).json(err))
+})
 
-router.post('/createevent', (req, res) => {
+router.post('/create', (req, res) => {
     Event.create({
         title: req.body.title,
         location: req.body.location,
+        time: req.body.time,
         description: req.body.description,
         userId: req.user.id
     })

@@ -13,4 +13,10 @@ router.get('/get', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+router.put('/update', (req, res) => {
+    User.update(req.body, {where:{ id: req.user.id}})
+    .then(data => res.status(200).json({update: data, message: 'information updated'}))
+    .catch(err => res.status(500).json(err))
+})
+
 module.exports = router;
