@@ -24,6 +24,7 @@ router.post('/create', (req, res) => {
         location: req.body.location,
         time: req.body.time,
         description: req.body.description,
+        keyword: req.body.keyword,
         userId: req.user.id
     })
         .then(data => res.status(200).json({ data: data, message: 'created' }))
