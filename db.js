@@ -17,8 +17,14 @@ sequelize.authenticate().then(
 
 User = sequelize.import('./models/user');
 Event = sequelize.import('./models/event');
+Attend = sequelize.import('./models/attending');
 
-Event.belongsTo(User);
 User.hasMany(Event);
+User.hasMany(Attend);
+Event.belongsTo(User);
+Event.hasMany(Attend);
+Attend.belongsTo(Event);
+Attend.belongsTo(User);
+
 
 module.exports = sequelize;

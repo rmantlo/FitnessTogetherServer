@@ -8,16 +8,12 @@ module.exports = function( sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        time: {
+        date: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull: true
-        },
-        attending: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: true
         },
         keyword: {
