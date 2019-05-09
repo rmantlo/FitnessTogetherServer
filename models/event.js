@@ -16,10 +16,6 @@ module.exports = function( sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: true
         },
-        attending: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
-            allowNull: true
-        },
         keyword: {
             type: DataTypes.ENUM,
             values: ['running', 'gym','soccer','basketball','tennis','hiking','rock climbing']

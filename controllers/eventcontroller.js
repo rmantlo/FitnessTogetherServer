@@ -17,6 +17,15 @@ router.get('/getmine', (req, res) => {
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json(err))
 })
+router.get('/get/:id', (req, res) => {
+    Event.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(data => res.status(200).json(data))
+        .catch(err => res.status(500).json(err))
+})
 
 router.post('/create', (req, res) => {
     Event.create({
