@@ -7,6 +7,10 @@ module.exports = function (sequelize, DataTypes) {
         username: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        date: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     })
     return Attending;

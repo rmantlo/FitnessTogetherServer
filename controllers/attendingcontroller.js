@@ -25,6 +25,7 @@ router.post('/attend', (req, res) => {
     Attend.create({
         username: req.body.username,
         eventTitle: req.body.eventTitle,
+        date: req.body.date,
         userId: req.user.id,
         eventId: req.body.eventId
     })

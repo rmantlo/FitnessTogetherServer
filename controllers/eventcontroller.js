@@ -31,7 +31,7 @@ router.post('/create', (req, res) => {
     Event.create({
         title: req.body.title,
         location: req.body.location,
-        time: req.body.time,
+        date: req.body.time,
         description: req.body.description,
         keyword: req.body.keyword,
         userId: req.user.id
