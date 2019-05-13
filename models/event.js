@@ -18,7 +18,7 @@ module.exports = function( sequelize, DataTypes) {
         },
         keyword: {
             type: DataTypes.ENUM,
-            values: ['running', 'gym','soccer','basketball','tennis','hiking','rock climbing']
+            values: ['running', 'gym','crossfit', 'kick boxing', 'yoga','basketball','football','soccer','golf','tennis','hiking','rock climbing', 'cycling','mountain biking','kayaking']
         }
     })
     return Event;
