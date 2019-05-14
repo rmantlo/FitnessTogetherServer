@@ -18,7 +18,15 @@ module.exports = function( sequelize, DataTypes) {
         },
         keyword: {
             type: DataTypes.ENUM,
-            values: ['running', 'gym','crossfit', 'kick boxing', 'yoga','basketball','football','soccer','golf','tennis','hiking','rock climbing', 'cycling','mountain biking','kayaking']
+            values: ['running', 'gym','crossfit', 'kick boxing', 'yoga','basketball','football','soccer','golf','tennis','hiking','rock climbing', 'cycling', 'mountain biking','kayaking']
+        },
+        longitude: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        latitude: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     })
     return Event;
