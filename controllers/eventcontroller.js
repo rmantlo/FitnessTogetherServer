@@ -17,6 +17,7 @@ router.get('/getmine', (req, res) => {
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json(err))
 })
+//might not need
 router.get('/get/:id', (req, res) => {
     Event.findOne({
         where: {
