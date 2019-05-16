@@ -17,6 +17,7 @@ router.get('/getmine', (req, res) => {
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json(err))
 })
+//might not need
 router.get('/get/:id', (req, res) => {
     Event.findOne({
         where: {
@@ -34,6 +35,8 @@ router.post('/create', (req, res) => {
         date: req.body.date,
         description: req.body.description,
         keyword: req.body.keyword,
+        longitude: req.body.lng,
+        latitude: req.body.lat,
         userId: req.user.id
     })
         .then(data => res.status(200).json({ data: data, message: 'created' }))
