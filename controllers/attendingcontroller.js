@@ -32,6 +32,17 @@ router.delete('/delete/:eventId', (req, res) => {
             userId: req.user.id
         }
     })
+        .then(data => res.status(200).json(data))
+        .catch(err => res.status(500).json(err))
+})
+router.delete('/deleteall', (req, res) => {
+    Attend.destroy({
+        where: {
+            userId: req.user.id
+        }
+    })
+        .then(data => res.status(200).json(data))
+        .catch(err => res.status(500).json(err))
 })
 
 module.exports = router;
